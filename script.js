@@ -1,4 +1,5 @@
-
+let humanScore = 0
+let computerScore = 0
 
 let random_number = Math.floor(Math.random() * 3)
 
@@ -30,5 +31,21 @@ function getHumanChoice() {
   }
 }
 
-console.log(getComputerChoice())
-console.log(getHumanChoice())
+function playRound(humanChoice, computerChoice) {
+  if ((humanChoice === "rock" && computerChoice === "scissors") || (humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "scissors" && computerChoice === "paper")) {
+    console.log("You win! " + humanChoice + " beats " + computerChoice + ".")
+    humanScore++
+  }
+  else if ((humanChoice === "rock" && computerChoice === "paper") || (humanChoice === "paper" && computerChoice === "scissors") || (humanChoice == "scissors" && computerChoice === "rock")) {
+    console.log("You lose! " + computerChoice + " beats " + humanChoice + ".")
+    computerScore++
+  }
+  else {
+    console.log("Its a Draw!")
+  }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection)
